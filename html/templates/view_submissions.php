@@ -1,0 +1,64 @@
+<h3>
+  Submissions
+  <?php if ($for_problem): ?>
+    for
+    <a href="index.php?action=view_problem&id=<?= (int)$problem['id'] ?>">
+      <?= htmlspecialchars($problem['title']) ?>
+    </a>
+  <?php endif; ?>
+</h3>
+<?php if ($submissions): ?>
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align: center">#</th>
+        <th>User</th>
+        <?php if (!$for_problem): ?><th>Problem</th><?php endif; ?>
+        <th>Time (UTC)</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php foreach ($submissions as $s): ?>
+        <tr>
+          <td>
+            <a href="index.php?action=view_submission&id=<?= (int)$s['id'] ?>">
+              <?= (int)$s['id'] ?>
+            </a>
+          </td>
+          <td style="max-width: <?= $for_problem ? "300px" : "120px" ?>">
+            <a href = "index.php?action=view_user&id=<?= $s['user']?>">
+              <?= htmlspecialchars($s['username']) ?>
+            </a>
+          </td>
+          <?php if (!$for_problem): ?>
+            <td style="max-width: 280px">
+              <a href="index.php?action=view_problem&id=<?= $s['problem']?>">
+                <?= htmlspecialchars($s['title']) ?>
+              </a>
+            </td>
+          <?php endif; ?>
+          <td><?= $s['time'] ?? "Long time ago" ?></td>
+          <td class="status-cell">
+            <span class="status-<?= str_replace(' ', '-', strtolower($s['status'])) ?>">
+              <?= htmlspecialchars($s['status']) ?>
+            </span>
+            <a href="index.php?action=status_info">ⓘ</a>
+          </td>
+        </tr>
+      <?php endforeach; ?>
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    <?php if ($page > 1): ?>
+      <a href="index.php?action=view_submissions&id=<?= $problem['id'] ?>&page=<?= $page - 1 ?>">&#9664; prev.</a>
+    <?php endif; ?>
+    <span>Page <?= $page ?> of <?= $total_pages ?></span>
+    <?php if ($page < $total_pages): ?>
+      <a href="index.php?action=view_submissions&id=<?= $problem['id'] ?>&page=<?= $page + 1 ?>">next &#9654;</a>
+    <?php endif; ?>
+  </div>
+<?php else: ?>
+  <p>None yet.</p>
+<?php endif; ?>

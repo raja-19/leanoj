@@ -1,0 +1,10 @@
+name = "checker"
+version = "0.1.0"
+
+[[lean_exe]]
+name = "check"
+root = "Checkers.Check"
+
+[[lean_exe]]
+name = "check_answer"
+root = "Checkers.CheckAnswer"

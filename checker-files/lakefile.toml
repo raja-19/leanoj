@@ -1,0 +1,10 @@
+name = "checker-files"
+version = "0.1.0"
+
+[[require]]
+name = "mathlib"
+path = "packages/mathlib"
+
+[[lean_lib]]
+name = "CheckerFiles"
+root = "CheckerFiles"
