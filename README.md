@@ -1,5 +1,5 @@
 - sqlite database used
-- html stores code that servers actual php pages
+- /html stores code that servers actual php pages
 - worker.php runs as a background process:
   1. fetches next pending submission
   2. copies problem template/answer and submission into /checker-files
