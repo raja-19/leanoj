@@ -16,6 +16,7 @@ steps 2 - 6 are run in a sandbox (isolate). because of that all (transitive) dep
 ### roadmap
 1. organize (possibly rewrite) the codebase and properly deploy in a container
 2. modernize the ui and add missing basic features (filtering, starring, etc.)
-3. set up auto lean/mathlib update (including local dependencies setup in /checker-files)
-4. figure out what to do next (e.g., lean guides for competitive math, molib)
-5. write and integrate own external typechecker (not necessary but cool project)
+3. compress problem statements and source code in the database
+4. set up auto lean/mathlib update (including local dependencies setup in /checker-files)
+5. figure out what to do next (e.g., lean guides for competitive math, molib)
+6. write and integrate own external typechecker (not necessary but cool project)
